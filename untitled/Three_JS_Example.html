@@ -17,20 +17,32 @@
 
 		<script src="js/three.min.js"></script>
 		<script src="js/ball.js"></script>
-		<script src="js/SpotLight.js"></script>
-		<script src="js/FirstPersonControls.js"></script>
+        <script src="js/OrbitControls.js"></script>
 
 		<script>
 			var scene = new THREE.Scene();
 			
 			var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+            var speedclone = 0.1;
 			
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			renderer.setClearColor(0x000000);
 			document.body.appendChild(renderer.domElement);
 
-			var bGeometry = new THREE.SphereGeometry(0.5,16,8);
+            var loader = new THREE.ObjectLoader();
+            loader.load('models/scene.json', function(tafel){
+                scene.add(tafel);
+
+                tafel.position.z = 5;
+            });
+
+            var controls = new THREE.OrbitControls(camera);
+            controls.addEventListener('change');
+
+
+            var bGeometry = new THREE.SphereGeometry(0.5,16,8);
 			var cGeometry = new THREE.BoxGeometry(0.5,1,1);
 			//var cMaterial = new THREE.MeshBasicMaterial( { color:0xff0040 } );
 			//var cMaterial = new THREE.MeshPhongMaterial( { color:0xff0040 } );
@@ -44,8 +56,9 @@
 
 
 			var clonedBall = ball.clone();
-			clonedBall.position.z = -15;
-			clonedBall.position.x = -5;
+			clonedBall.position.z = 5;
+
+
 			
 			var cGroup = new THREE.Group();
 			var ballGroup = new THREE.Group();
@@ -144,6 +157,12 @@
 			function render() {
 				requestAnimationFrame(render);
 
+
+                clonedBall.position.x += speedclone;
+
+                if(clonedBall.position.x >= 7 || clonedBall.position.x <= -7){
+                    speedclone *= -1;
+                }
 				
 				ball.position.add(speed.copy(cubeDirection).multiplyScalar(ballSpeed));
 				
