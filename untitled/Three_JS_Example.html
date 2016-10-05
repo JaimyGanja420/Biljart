@@ -31,6 +31,7 @@
 			renderer.setClearColor(0x000000);
 			document.body.appendChild(renderer.domElement);
 
+<<<<<<< HEAD
             var loader = new THREE.ObjectLoader();
             loader.load('models/scene.json', function(tafel){
                 scene.add(tafel);
@@ -44,15 +45,22 @@
 
             var bGeometry = new THREE.SphereGeometry(0.5,16,8);
 			var cGeometry = new THREE.BoxGeometry(0.5,1,1);
+=======
+			var bGeometry = new THREE.SphereGeometry(0.5,16,8);
+			var cGeometry = new THREE.BoxGeometry(1,1,1);
+>>>>>>> origin/master
 			//var cMaterial = new THREE.MeshBasicMaterial( { color:0xff0040 } );
 			//var cMaterial = new THREE.MeshPhongMaterial( { color:0xff0040 } );
 			var cMaterial = new THREE.MeshPhongMaterial( { color:0xf0f0f0 } );
 			var ball = new THREE.Mesh(bGeometry,cMaterial);
 			//var cube = new Ball();
 
-			var keu = new THREE.MeshPhongMaterial(cGeometry,cMaterial);
+			var keu = new THREE.Mesh(cGeometry,cMaterial);
 
 			ball.position.z = -15;
+
+
+			scene.add(keu);
 
 
 			var clonedBall = ball.clone();
@@ -178,7 +186,7 @@
 					}
 				}
 
-
+				keu.position.z = ball.position.z + 1;
 				
 				
 				for (var name in cGroup.children) {
