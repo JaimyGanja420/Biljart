@@ -4,8 +4,11 @@
 
 
 
-var Ball ={
-    geometry: new THREE.SphereGeometry(0.5,16,8),
-    material: new THREE.MeshPhongMaterial( { color:0xf0f0f0 } ),
-    Mesh : new THREE.Mesh(this.geometry,this.material)
-}
+var geometry = new THREE.SphereGeometry(0.5,16,8);
+var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+var sphere = new THREE.Mesh( geometry, material );
+
+
+var geometry2 = new THREE.SphereGeometry(0.5,16,8);
+var material2 = new THREE.MeshBasicMaterial( {color: 0xff0000} );
+var red = new THREE.Mesh( geometry2, material2 );

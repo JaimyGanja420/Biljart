@@ -22,8 +22,12 @@
 		<script>
 
 			//Variables
-			//var wBSX = 0.1;
-			//var wBSZ = 0.1;
+			var wBSX = 0.1;
+			var wBSZ = 0.1;
+
+            var rBSX = 0.5;
+            var rBSZ = 0.5;
+
 
 			//Scene setup
 			var scene = new THREE.Scene();
@@ -33,6 +37,7 @@
 			renderer.setClearColor(0x000000);
 			document.body.appendChild(renderer.domElement);
 
+			//Camera positioning
 			camera.position.z = 100;
 			camera.position.y = 20;
 
@@ -46,7 +51,7 @@
                 scene.add(tafel);
             });
 
-			var groundMaterial = new THREE.MeshPhongMaterial( { color: 0xf0f0f0 } );
+			var groundMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff } );
 			var ground = new THREE.Mesh( new THREE.PlaneBufferGeometry(100,100,2,2), groundMaterial);
 			ground.position.y = -2;
 			ground.rotation.x = - Math.PI / 2;
@@ -54,27 +59,65 @@
 
 			scene.add( new THREE.AmbientLight(0x111111));
 
-			//var whiteBall = Ball;
-			//whiteBall.material.color.setHex( 0xffffff );
-			//whiteBall.position.y = 0.4;
-			//scene.add(whiteBall);
+			var whiteBall = sphere;
+            whiteBall.position.y = 0.5;
+			scene.add(whiteBall);
+
+            var redBall = red;
+            redBall.position.y = 0.5;
+            redBall.position.x = 2.5;
+            scene.add(redBall);
+
+            //BoundigBoxes Init
+            var whiteBox = new THREE.BoundingBoxHelper(whiteBall, 0x00ff00);
+            var redBox = new THREE.BoundingBoxHelper(redBall,0x00ff0f);
 
 			//Renderer
 			function render() {
+			    //Render init
 				requestAnimationFrame(render);
 				renderer.render(scene, camera);
-				/*//Ball Init
+
+                //Check if collision has happend
+                //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
+                if (redBox.box.isIntersectionBox(whiteBox.box)){
+                    tempx = wBSX;
+                    wBSX = rBSX;
+                    rBSX = tempx;
+
+                    tempz = wBSZ;
+                    wBSZ = rBSZ;
+                    rBSZ = tempz;
+                }
+
+                //Ball speed vectors
                 whiteBall.position.x += wBSX;
 				whiteBall.position.z += wBSZ;
 
-				//Ball Physics
+                redBall.position.x += rBSX;
+                redBall.position.z += rBSZ;
+
+				//Playtable Border physics
                 if(whiteBall.position.x >= 6.5 || whiteBall.position.x <= -6.5){
                     wBSX *= -1;
                 }
 
-				if(whiteBall.position.z >= 16.75 || whiteBall.position.z <= -6.75){
+				if(whiteBall.position.z >= 11.75 || whiteBall.position.z <= -11.75){
 					wBSZ *= -1;
-				}*/
+				}
+
+                if(redBall.position.x >= 6.5 || redBall.position.x <= -6.5){
+                    rBSX *= -1;
+                }
+
+                if(redBall.position.z >= 11.75 || redBall.position.z <= -11.75){
+                    rBSZ *= -1;
+                }
+
+                //Keep bounding boxes updated
+                whiteBox.update();
+                redBox.update();
+
 			}
 			render();
 		</script>
