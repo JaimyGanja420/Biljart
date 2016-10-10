@@ -33,6 +33,9 @@
 			renderer.setClearColor(0x000000);
 			document.body.appendChild(renderer.domElement);
 
+			camera.position.z = 100;
+			camera.position.y = 20;
+
 			//Orbit controls
 			var controls = new THREE.OrbitControls(camera);
 			controls.addEventListener('change');
@@ -59,7 +62,7 @@
 			//Renderer
 			function render() {
 				requestAnimationFrame(render);
-
+				renderer.render(scene, camera);
 				/*//Ball Init
                 whiteBall.position.x += wBSX;
 				whiteBall.position.z += wBSZ;
