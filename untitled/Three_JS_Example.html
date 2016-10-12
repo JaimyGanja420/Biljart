@@ -15,6 +15,7 @@
 
 
 		<script src="js/three.min.js"></script>
+		<script src="js/Physics.js"></script>
 		<script src="js/ball.js"></script>
         <script src="js/OrbitControls.js"></script>
 
@@ -58,14 +59,20 @@
 
             var redBall1 = redSphere;
             redBall1.position.y = 0.5;
-            redBall1.position.x = 2.5;
+            redBall1.position.x = 1.5;
 			redBall1.speedX = 0.5;
 			redBall1.speedZ = 0.7;
             scene.add(redBall1);
 
-            //BoundigBoxes Init
-            var whiteBox = new THREE.BoundingBoxHelper(whiteBall, 0x00ff00);
-            var redBox = new THREE.BoundingBoxHelper(redBall1,0x00ff0f);
+			var redBall2 = redBall1.clone();
+			redBall2.position.y = 0.5;
+			redBall2.position.x = 3;
+			redBall2.speedX = 0.5;
+			redBall2.speedZ = 0.7;
+			scene.add(redBall2);
+
+
+			var ballgroup = [whiteBall, redBall1, redBall2];
 
 
 			//Renderer
@@ -74,6 +81,17 @@
 				requestAnimationFrame(render);
 				renderer.render(scene, camera);
 
+				for(var index = 0; index < ballgroup.length; index++){
+					slowDown(ballgroup[index]);
+					for(i = 0; i < ballgroup.length; i++){
+						if(index != i)
+						collide(ballgroup[index],ballgroup[i]);
+						collideWall(ballgroup[index],ballgroup[i]);
+
+					}
+				}
+
+				/*
 				//Check if collision has happend
                 //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
                 if (redBox.box.isIntersectionBox(whiteBox.box)){
@@ -121,6 +139,7 @@
 					redBall1.speedX *= 0.980;
 					redBall1.speedZ *= 0.980;
 				}
+				*/
 
 
 
