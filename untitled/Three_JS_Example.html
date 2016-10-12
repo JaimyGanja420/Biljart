@@ -20,14 +20,6 @@
 
 		<script>
 
-			//Variables
-			var wBSX = -0.8;
-			var wBSZ = -0.5;
-
-			var r1BSX = 0.5;
-            var r1BSZ = 0.7;
-
-
 			//Scene setup
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -60,19 +52,21 @@
 
 			var whiteBall = whiteSphere;
             whiteBall.position.y = 0.5;
+			whiteBall.speedX = -0.8;
+			whiteBall.speedZ = -0.5;
 			scene.add(whiteBall);
 
             var redBall1 = redSphere;
             redBall1.position.y = 0.5;
             redBall1.position.x = 2.5;
+			redBall1.speedX = 0.5;
+			redBall1.speedZ = 0.7;
             scene.add(redBall1);
 
             //BoundigBoxes Init
             var whiteBox = new THREE.BoundingBoxHelper(whiteBall, 0x00ff00);
             var redBox = new THREE.BoundingBoxHelper(redBall1,0x00ff0f);
 
-			redBall1.speedx = r1BSX;
-			redBall1.speedz = r1BSZ;
 
 			//Renderer
 			function render() {
@@ -83,49 +77,49 @@
 				//Check if collision has happend
                 //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
                 if (redBox.box.isIntersectionBox(whiteBox.box)){
-                	alert(whiteBall.speedx);
-                    tempx = wBSX;
-                    wBSX = r1BSX;
-                    r1BSX = tempx;
+                	alert(whiteBall.speedX);
+                    tempx = whiteBall.speedX;
+					whiteBall.speedX = redBall1.speedX;
+					redBall1.speedX = tempx;
 
-                    tempz = wBSZ;
-                    wBSZ = r1BSZ;
-                    r1BSZ = tempz;
+                    tempz = whiteBall.speedZ;
+					whiteBall.speedZ = redBall1.speedZ;
+					redBall1.speedZ = tempz;
                 }
 
                 //Ball speed vectors
-                whiteBall.position.x += wBSX;
-				whiteBall.position.z += wBSZ;
+                whiteBall.position.x += whiteBall.speedX;
+				whiteBall.position.z += whiteBall.speedZ;
 
-                redBall1.position.x += r1BSX;
-                redBall1.position.z += r1BSZ;
+                redBall1.position.x += redBall1.speedX;
+                redBall1.position.z += redBall1.speedZ;
 
 				//Playtable Border physics
                 if(whiteBall.position.x >= 6.5 || whiteBall.position.x <= -6.5){
-                    wBSX *= -1;
+					whiteBall.speedX *= -1;
                 }
 
 				if(whiteBall.position.z >= 11.75 || whiteBall.position.z <= -11.75){
-					wBSZ *= -1;
+					whiteBall.speedZ *= -1;
 				}
 
                 if(redBall1.position.x >= 6.5 || redBall1.position.x <= -6.5){
-                    r1BSX *= -1;
+					redBall1.speedX *= -1;
                 }
 
                 if(redBall1.position.z >= 11.75 || redBall1.position.z <= -11.75){
-                    r1BSZ *= -1;
+					redBall1.speedZ *= -1;
                 }
 
                 //Slow down physics
-                if(wBSX > 0 || wBSZ > 0){
-                	wBSX *= 0.980;
-					wBSZ *= 0.980;
+                if(whiteBall.speedX > 0 || whiteBall.speedZ > 0){
+					whiteBall.speedX *= 0.980;
+					whiteBall.speedZ *= 0.980;
 				}
 
-				if(r1BSX > 0 || r1BSZ > 0){
-					r1BSX *= 0.980;
-					r1BSZ *= 0.980;
+				if(redBall1.speedX > 0 || redBall1.speedZ > 0){
+					redBall1.speedX *= 0.980;
+					redBall1.speedZ *= 0.980;
 				}
 
 
