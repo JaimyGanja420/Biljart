@@ -17,10 +17,10 @@ function collide (Box1, Box2, Ball1, Ball2) {
 
 function collideWall (Ball){
     if(Ball.position.x >= 6.5 || Ball.position.x <= -6.5){
-        Ball1.speedX *= -1;
+        Ball.speedX *= -1;
     }
 
-    if(Ball.position.z >= 11.75 || Ball.position.z <= -11.75){
+   else if(Ball.position.z >= 11.75 || Ball.position.z <= -11.75){
         Ball.speedZ *= -1;
     }
 }
