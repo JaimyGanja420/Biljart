@@ -53,48 +53,154 @@
 
 			var whiteBall = whiteSphere;
             whiteBall.position.y = 0.5;
-			whiteBall.speedX = -0.8;
-			whiteBall.speedZ = -0.5;
+			whiteBall.speedX = -0.4;
+			whiteBall.speedZ = -0.25;
 			scene.add(whiteBall);
 
             var redBall1 = redSphere;
             redBall1.position.y = 0.5;
             redBall1.position.x = 1.5;
-			redBall1.speedX = 0.5;
-			redBall1.speedZ = 0.7;
+			redBall1.speedX = 0.25;
+			redBall1.speedZ = 0.35;
             scene.add(redBall1);
 
 			var redBall2 = redBall1.clone();
 			redBall2.position.y = 0.5;
 			redBall2.position.x = 3;
-			redBall2.speedX = 0.5;
-			redBall2.speedZ = 0.7;
+			redBall2.speedX = 0.25;
+			redBall2.speedZ = 0.35;
 			scene.add(redBall2);
+
+            //keu
+            var isRemoved = false;
+            var keuGeometry = new THREE.BoxGeometry(1,1,1);
+            var keuMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00 } );
+            var keu = new THREE.Mesh( keuGeometry, keuMaterial );
+
+            keu.position.x = whiteBall.position.x + 1;
+            keu.position.y = 0.5;
+            keu.position.z = whiteBall.position.z;
+            scene.add(keu);
+
+            //rotation variables
+            const distance = 1;
+            const speed = 0.1;
+            var counter = 0;
+
+            //key handlers
+            var isRightPressed = false;
+            var isLeftPressed = false;
+            var isShoot = false;
+            document.addEventListener("keydown", handleKeyDown, false);
+            document.addEventListener("keyup", handleKeyUp, false);
+
+            function handleKeyDown(e)
+            {
+                if(e.keyCode == 65)
+                {
+                    isRightPressed = true;
+                } else if(e.keyCode == 68)
+                {
+                    isLeftPressed = true;
+                }
+                else if(e.keyCode == 86)
+                {
+                    isShoot = true;
+                }
+            }
+
+            function handleKeyUp(e)
+            {
+                if(e.keyCode == 65)
+                {
+                    isRightPressed = false;
+                } else if(e.keyCode == 68)
+                {
+                    isLeftPressed = false;
+                }
+            }
+
+            //shoot function
+            function shoot()
+            {
+                whiteBall.speedX = (keu.position.x - whiteBall.position.x) * -1;
+                whiteBall.speedZ = (keu.position.z - whiteBall.position.z) * -1;
+                console.log(whiteBall.speedX);
+                console.log(whiteBall.speedZ);
+                isShoot = false;
+            }
+
+            //keu rotation function
+            function rotateKeu()
+            {
+                if(whiteBall.speedX == 0 && whiteBall.speedZ == 0)
+                {
+                    if(isRemoved)
+                    {
+                        scene.add(keu);
+                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
+                        isRemoved = false;
+                    }
+                    if(isRightPressed)
+                    {
+                        counter -= speed;
+                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
+                    } else if(isLeftPressed)
+                    {
+                        counter += speed;
+                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
+                    }
+                }else
+                {
+                    console.log(whiteBall.speedX);
+                    console.log(whiteBall.speedZ);
+                    if(!isRemoved)
+                    {
+                        scene.remove(keu);
+                        isRemoved = true;
+                    }
+                }
+            }
+
 
 
 			var ballgroup = [whiteBall, redBall1, redBall2];
-
+			var bbox1 = new THREE.BoundingBoxHelper(whiteBall,0x00ff0f);
+			var bbox2 = new THREE.BoundingBoxHelper(redBall1,0x00ff0f);
+			var bbox3 = new THREE.BoundingBoxHelper(redBall2,0x00ff0f);
+			var bboxgroup = [bbox1, bbox2, bbox3];
 
 			//Renderer
 			function render() {
 			    //Render init
+
 				requestAnimationFrame(render);
 				renderer.render(scene, camera);
 
 				for(var index = 0; index < ballgroup.length; index++){
 					slowDown(ballgroup[index]);
-					for(i = 0; i < ballgroup.length; i++){
+					for(var i = 0; i < ballgroup.length; i++){
 						if(index != i)
-						collide(ballgroup[index],ballgroup[i]);
-						collideWall(ballgroup[index],ballgroup[i]);
-
+						collide(ballgroup[index],ballgroup[i], bboxgroup[index],bboxgroup[i]);
+						collideWall(ballgroup[index]);
+                        bbox1.update();
+                        bbox2.update();
+                        bbox3.update();
 					}
+					if(isShoot)
+                    {
+                        shoot();
+                    }
+                    rotateKeu();
 				}
 
-				/*
+
 				//Check if collision has happend
                 //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
-                if (redBox.box.isIntersectionBox(whiteBox.box)){
+              /*  if (redBox.box.isIntersectionBox(whiteBox.box)){
                 	alert(whiteBall.speedX);
                     tempx = whiteBall.speedX;
 					whiteBall.speedX = redBall1.speedX;
@@ -103,15 +209,18 @@
                     tempz = whiteBall.speedZ;
 					whiteBall.speedZ = redBall1.speedZ;
 					redBall1.speedZ = tempz;
-                }
+                }*/
 
                 //Ball speed vectors
                 whiteBall.position.x += whiteBall.speedX;
 				whiteBall.position.z += whiteBall.speedZ;
 
                 redBall1.position.x += redBall1.speedX;
-                redBall1.position.z += redBall1.speedZ;
+				redBall1.position.z += redBall1.speedZ;
 
+				redBall2.position.x += redBall2.speedX;
+				redBall2.position.z += redBall2.speedZ;
+/*
 				//Playtable Border physics
                 if(whiteBall.position.x >= 6.5 || whiteBall.position.x <= -6.5){
 					whiteBall.speedX *= -1;
@@ -128,6 +237,13 @@
                 if(redBall1.position.z >= 11.75 || redBall1.position.z <= -11.75){
 					redBall1.speedZ *= -1;
                 }
+				if(redBall2.position.x >= 6.5 || redBall2.position.x <= -6.5){
+					redBall2.speedX *= -1;
+				}
+
+				if(redBall2.position.z >= 11.75 || redBall2.position.z <= -11.75){
+					redBall2.speedZ *= -1;
+				}
 
                 //Slow down physics
                 if(whiteBall.speedX > 0 || whiteBall.speedZ > 0){
@@ -138,14 +254,17 @@
 				if(redBall1.speedX > 0 || redBall1.speedZ > 0){
 					redBall1.speedX *= 0.980;
 					redBall1.speedZ *= 0.980;
-				}
-				*/
+				}*/
+
 
 
 
 				//Keep bounding boxes updated
-                whiteBox.update();
-                redBox.update();
+
+                bbox1.update();
+                bbox2.update();
+                bbox3.update();
+                //redBox.update();
 
 			}
 			render();
