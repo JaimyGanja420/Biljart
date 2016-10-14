@@ -53,8 +53,8 @@ function collideWall (Ball1){
 
 function slowDown (Ball){
     if(Ball.speedX > 0 || Ball.speedZ > 0 || Ball.speedX < 0 || Ball.speedZ < 0){
-        Ball.speedX *= 0.980;
-        Ball.speedZ *= 0.980;
+        Ball.speedX *= 0.990;
+        Ball.speedZ *= 0.990;
     }
     if(Ball.speedX >= -0.00005 && Ball.speedX <= 0.00005){
         Ball.speedX = 0;
