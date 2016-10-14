@@ -57,59 +57,71 @@
             whiteBall.position.y = 0.5;
 			whiteBall.position.z = 5.875;
 			whiteBall.position.x = 0;
-			whiteBall.speedX = 0;
-			whiteBall.speedZ = 0;
 			scene.add(whiteBall);
 
             var redBall1 = redSphere;
             redBall1.position.y = 0.5;
             redBall1.position.x = 0;
 			redBall1.position.z = -5.875;
-			redBall1.speedX = 0;
-			redBall1.speedZ = 0;
+			redBall1.directionX = 0;
+			redBall1.directionZ = 0;
             scene.add(redBall1);
 
 
 
-			var redBall2 = redBall1.clone();
+			var redBall2 = redSphere2;
 			redBall2.position.y = 0.5;
-			redBall2.position.x = -0.75;
-			redBall2.position.z = -7.375;
-			redBall2.speedX = 0;
-			redBall2.speedZ = 0;
+			redBall2.position.x = -0.5;
+			redBall2.position.z = -6.875;
 			scene.add(redBall2);
 
-			var redBall3 = redBall2.clone();
+			var redBall3 = redSphere3;
 			redBall3.position.y = 0.5;
-			redBall3.position.x = 0.75;
-			redBall3.position.z = -7.375;
-			redBall3.speedX = 0;
-			redBall3.speedZ = 0;
+			redBall3.position.x = 0.5;
+			redBall3.position.z = -6.875;
 			scene.add(redBall3);
 
-			var redBall4 = redBall3.clone();
+			var redBall4 = redSphere4;
 			redBall4.position.y = 0.5;
-			redBall4.position.x = -1.25;
-			redBall4.position.z = -8.875;
-			redBall4.speedX = 0;
-			redBall4.speedZ = 0;
+			redBall4.position.x = -1;
+			redBall4.position.z = -7.875;
 			scene.add(redBall4);
 
-			var redBall5 = redBall4.clone();
+			var redBall5 = redSphere5;
 			redBall5.position.y = 0.5;
 			redBall5.position.x = 0;
-			redBall5.position.z = -8.875;
-			redBall5.speedX = 0;
-			redBall5.speedZ = 0;
+			redBall5.position.z = -7.875;
 			scene.add(redBall5);
 
-			var redBall6 = redBall5.clone();
+			var redBall6 = redSphere6;
 			redBall6.position.y = 0.5;
-			redBall6.position.x = 1.25;
-			redBall6.position.z = -8.875;
-			redBall6.speedX = 0;
-			redBall6.speedZ = 0;
+			redBall6.position.x = 1;
+			redBall6.position.z = -7.875;
 			scene.add(redBall6);
+
+			var redBall7 = redSphere7;
+			redBall7.position.y = 0.5;
+			redBall7.position.x = -1.5;
+			redBall7.position.z = -8.875;
+			scene.add(redBall7);
+
+			var redBall8 = redSphere8;
+			redBall8.position.y = 0.5;
+			redBall8.position.x = -0.5;
+			redBall8.position.z = -8.875;
+			scene.add(redBall8);
+
+			var redBall9 = redSphere9;
+			redBall9.position.y = 0.5;
+			redBall9.position.x = 0.5;
+			redBall9.position.z = -8.875;
+			scene.add(redBall9);
+
+			var redBall10 = redSphere10;
+			redBall10.position.y = 0.5;
+			redBall10.position.x = 1.5;
+			redBall10.position.z = -8.875;
+			scene.add(redBall10);
 
 
             //keu
@@ -165,15 +177,16 @@
             //shoot function
             function shoot()
             {
-                whiteBall.speedX = (keu.position.x - whiteBall.position.x) * -0.8;
-                whiteBall.speedZ = (keu.position.z - whiteBall.position.z) * -0.8;
+                whiteBall.directionX = -(keu.position.x - whiteBall.position.x);
+                whiteBall.directionZ = -(keu.position.z - whiteBall.position.z);
+				whiteBall.speed = 1;
                 isShoot = false;
             }
 
             //keu rotation function
             function rotateKeu()
             {
-                if(whiteBall.speedX == 0 && whiteBall.speedZ == 0)
+                if(whiteBall.speed == 0 && whiteBall.speed == 0)
                 {
                     if(isRemoved)
                     {
@@ -207,7 +220,7 @@
 
 
 
-			var ballgroup = [whiteBall, redBall1, redBall2, redBall3, redBall4, redBall5, redBall6];
+			var ballgroup = [whiteBall, redBall1, redBall2, redBall3, redBall4, redBall5, redBall6, redBall7, redBall8, redBall9, redBall10];
 
 			var prev = redBall2;
 
@@ -267,8 +280,8 @@
 				for(var i = 0; i < ballgroup.length; i++)
 				{
 					var ball = ballgroup[i];
-					ball.position.x += ball.speedX;
-					ball.position.z += ball.speedZ;
+					ball.position.x += ball.directionX * ball.speed;
+					ball.position.z += ball.directionZ * ball.speed;
 				}
 /*
 				//Playtable Border physics
