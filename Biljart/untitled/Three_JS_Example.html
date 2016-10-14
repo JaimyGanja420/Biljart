@@ -21,6 +21,8 @@
 
 		<script>
 
+			var keu = null;
+
 			//Scene setup
 			var scene = new THREE.Scene();
 			var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -111,14 +113,15 @@
 
 
             //keu
-            var isRemoved = false;
-            var keuGeometry = new THREE.BoxGeometry(1,1,1);
-            var keuMaterial = new THREE.MeshBasicMaterial( {color: 0xffff00 } );
-            var keu = new THREE.Mesh( keuGeometry, keuMaterial );
+			var isRemoved = false;
+			var loader2 = new THREE.ObjectLoader();
+			loader2.load('models/model3.json', function(keeu){
+				keu = keeu;
+				keu.position.x = whiteBall.position.x;
+				keu.position.y = 0.5;
+				keu.position.z = whiteBall.position.z;
+			});
 
-            keu.position.x = whiteBall.position.x + 1;
-            keu.position.y = 0.5;
-            keu.position.z = whiteBall.position.z;
             scene.add(keu);
 
             //rotation variables
@@ -182,11 +185,13 @@
                     if(isRightPressed)
                     {
                         counter -= speed;
+						keu.rotateZ(-0.03);
                         keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
                         keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
                     } else if(isLeftPressed)
                     {
                         counter += speed;
+						keu.rotateZ(0.03);
                         keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
                         keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
                     }
