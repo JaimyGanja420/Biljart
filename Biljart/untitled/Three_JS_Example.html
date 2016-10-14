@@ -60,15 +60,15 @@
             var redBall1 = redSphere;
             redBall1.position.y = 0.5;
             redBall1.position.x = 1.5;
-			redBall1.speedX = 0.25;
-			redBall1.speedZ = 0.35;
+			redBall1.speedX = 0;
+			redBall1.speedZ = 0;
             scene.add(redBall1);
 
 			var redBall2 = redBall1.clone();
 			redBall2.position.y = 0.5;
 			redBall2.position.x = 3;
-			redBall2.speedX = 0.25;
-			redBall2.speedZ = 0.35;
+			redBall2.speedX = 0;
+			redBall2.speedZ = 0;
 			scene.add(redBall2);
 
             //keu
@@ -84,7 +84,7 @@
 
             //rotation variables
             const distance = 1;
-            const speed = 0.1;
+            const speed = 0.03;
             var counter = 0;
 
             //key handlers
@@ -183,21 +183,25 @@
 				for(var index = 0; index < ballgroup.length; index++){
 					slowDown(ballgroup[index]);
 					for(var i = 0; i < ballgroup.length; i++){
-						if(index != i)
+						/*if(index != i)
 						collide(ballgroup[index],ballgroup[i], bboxgroup[index],bboxgroup[i]);
 						collideWall(ballgroup[index]);
                         bbox1.update();
                         bbox2.update();
-                        bbox3.update();
+                        bbox3.update();*/
+
+						if(index != i)
+							newCollide(ballgroup[index], ballgroup[i]);
+						collideWall(ballgroup[index]);
 					}
-					if(isShoot)
-                    {
-                        shoot();
-                    }
-                    rotateKeu();
 				}
-
-
+				console.log(whiteBall.speedX);
+				console.log(whiteBall.speedZ);
+				if(isShoot)
+				{
+					shoot();
+				}
+				rotateKeu();
 				//Check if collision has happend
                 //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
               /*  if (redBox.box.isIntersectionBox(whiteBox.box)){
