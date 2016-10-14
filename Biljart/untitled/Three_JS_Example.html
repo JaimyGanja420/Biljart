@@ -53,8 +53,8 @@
 
 			var whiteBall = whiteSphere;
             whiteBall.position.y = 0.5;
-			whiteBall.speedX = -0.4;
-			whiteBall.speedZ = -0.25;
+			whiteBall.speedX = 0;
+			whiteBall.speedZ = 0;
 			scene.add(whiteBall);
 
             var redBall1 = redSphere;
@@ -123,10 +123,8 @@
             //shoot function
             function shoot()
             {
-                whiteBall.speedX = (keu.position.x - whiteBall.position.x) * -1;
-                whiteBall.speedZ = (keu.position.z - whiteBall.position.z) * -1;
-                console.log(whiteBall.speedX);
-                console.log(whiteBall.speedZ);
+                whiteBall.speedX = (keu.position.x - whiteBall.position.x) * -0.5;
+                whiteBall.speedZ = (keu.position.z - whiteBall.position.z) * -0.5;
                 isShoot = false;
             }
 
@@ -155,8 +153,6 @@
                     }
                 }else
                 {
-                    console.log(whiteBall.speedX);
-                    console.log(whiteBall.speedZ);
                     if(!isRemoved)
                     {
                         scene.remove(keu);
@@ -177,26 +173,20 @@
 			function render() {
 			    //Render init
 
-				requestAnimationFrame(render);
+
 				renderer.render(scene, camera);
 
 				for(var index = 0; index < ballgroup.length; index++){
 					slowDown(ballgroup[index]);
+					collideWall(ballgroup[index]);
 					for(var i = 0; i < ballgroup.length; i++){
-						/*if(index != i)
-						collide(ballgroup[index],ballgroup[i], bboxgroup[index],bboxgroup[i]);
-						collideWall(ballgroup[index]);
-                        bbox1.update();
-                        bbox2.update();
-                        bbox3.update();*/
-
 						if(index != i)
 							newCollide(ballgroup[index], ballgroup[i]);
-						collideWall(ballgroup[index]);
+
+						console.log(whiteBall.speedX);
+						console.log(whiteBall.speedZ);
 					}
 				}
-				console.log(whiteBall.speedX);
-				console.log(whiteBall.speedZ);
 				if(isShoot)
 				{
 					shoot();
@@ -269,6 +259,7 @@
                 bbox2.update();
                 bbox3.update();
                 //redBox.update();
+				requestAnimationFrame(render);
 
 			}
 			render();

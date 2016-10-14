@@ -24,22 +24,20 @@ function newCollide(ball1, ball2)
 {
     a = ball1.position.x - ball2.position.x;
     b = ball1.position.z - ball2.position.z;
-    ab = Math.sqrt((a * a) + (b * b));
+    ab = Math.sqrt(((a * a) + (b * b)));
 
-    if(ab < 1)
+    if(ab < 1.1)
     {
-        //sphere en sphere2 collide
-        /*ball1.speedX = ((ball1.speedX * (1-1)+(2*1*ball2.speedX))/(1+1));
-        ball1.speedZ = ((ball1.speedZ * (1-1)+(2*1*ball2.speedZ))/(1+1));
-        ball2.speedX = ((ball2.speedX * (1-1)+(2*1*ball1.speedX))/(1+1));
-        ball2.speedZ = ((ball2.speedZ * (1-1)+(2*1*ball1.speedZ))/(1+1));*/
-        tempx = ball1.speedX;
-        ball1.speedX = ball2.speedX;
-        ball2.SpeedX = tempx;
+        console.log("collision");
+        ball2.speedX = ball1.speedX;
+        ball2.speedZ = ball1.speedZ;
+        ball1.speedX *= -0.2;
+        ball1.speedZ *= -0.2;
 
-        tempz = ball1.speedZ;
-        ball1.speedZ = ball2.speedZ;
-        ball2.speedZ = tempz;
+        ball1.position.x += ball1.speedX;
+        ball1.position.z += ball1.speedZ;
+        ball2.position.x += ball2.speedX;
+        ball2.position.z += ball2.speedZ;
     }
 }
 

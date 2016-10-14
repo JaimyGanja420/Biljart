@@ -4,7 +4,7 @@
 
 
 //Whiteball
-var geometry = new THREE.SphereGeometry(0.5,16,8);
+var geometry = new THREE.SphereGeometry(0.5,32,32);
 var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
 var whiteSphere = new THREE.Mesh( geometry, material );
 whiteBox = new THREE.BoundingBoxHelper(whiteSphere, 0x00ff00);
