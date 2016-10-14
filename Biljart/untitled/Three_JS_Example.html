@@ -53,23 +53,62 @@
 
 			var whiteBall = whiteSphere;
             whiteBall.position.y = 0.5;
+			whiteBall.position.z = 5.875;
+			whiteBall.position.x = 0;
 			whiteBall.speedX = 0;
 			whiteBall.speedZ = 0;
 			scene.add(whiteBall);
 
             var redBall1 = redSphere;
             redBall1.position.y = 0.5;
-            redBall1.position.x = 1.5;
+            redBall1.position.x = 0;
+			redBall1.position.z = -5.875;
 			redBall1.speedX = 0;
 			redBall1.speedZ = 0;
             scene.add(redBall1);
 
+
+
 			var redBall2 = redBall1.clone();
 			redBall2.position.y = 0.5;
-			redBall2.position.x = 3;
+			redBall2.position.x = -0.75;
+			redBall2.position.z = -7.375;
 			redBall2.speedX = 0;
 			redBall2.speedZ = 0;
 			scene.add(redBall2);
+
+			var redBall3 = redBall2.clone();
+			redBall3.position.y = 0.5;
+			redBall3.position.x = 0.75;
+			redBall3.position.z = -7.375;
+			redBall3.speedX = 0;
+			redBall3.speedZ = 0;
+			scene.add(redBall3);
+
+			var redBall4 = redBall3.clone();
+			redBall4.position.y = 0.5;
+			redBall4.position.x = -1.25;
+			redBall4.position.z = -8.875;
+			redBall4.speedX = 0;
+			redBall4.speedZ = 0;
+			scene.add(redBall4);
+
+			var redBall5 = redBall4.clone();
+			redBall5.position.y = 0.5;
+			redBall5.position.x = 0;
+			redBall5.position.z = -8.875;
+			redBall5.speedX = 0;
+			redBall5.speedZ = 0;
+			scene.add(redBall5);
+
+			var redBall6 = redBall5.clone();
+			redBall6.position.y = 0.5;
+			redBall6.position.x = 1.25;
+			redBall6.position.z = -8.875;
+			redBall6.speedX = 0;
+			redBall6.speedZ = 0;
+			scene.add(redBall6);
+
 
             //keu
             var isRemoved = false;
@@ -123,8 +162,8 @@
             //shoot function
             function shoot()
             {
-                whiteBall.speedX = (keu.position.x - whiteBall.position.x) * -0.2;
-                whiteBall.speedZ = (keu.position.z - whiteBall.position.z) * -0.2;
+                whiteBall.speedX = (keu.position.x - whiteBall.position.x) * -0.8;
+                whiteBall.speedZ = (keu.position.z - whiteBall.position.z) * -0.8;
                 isShoot = false;
             }
 
@@ -163,11 +202,24 @@
 
 
 
-			var ballgroup = [whiteBall, redBall1, redBall2];
-			var bbox1 = new THREE.BoundingBoxHelper(whiteBall,0x00ff0f);
-			var bbox2 = new THREE.BoundingBoxHelper(redBall1,0x00ff0f);
-			var bbox3 = new THREE.BoundingBoxHelper(redBall2,0x00ff0f);
-			var bboxgroup = [bbox1, bbox2, bbox3];
+			var ballgroup = [whiteBall, redBall1, redBall2, redBall3, redBall4, redBall5, redBall6];
+
+			var prev = redBall2;
+
+			var isDone = false;
+			function generateBalls()
+			{
+				for(var i = 3; i < 8; i++)
+				{
+					var clone = redBall1.clone();
+					clone.position.x = prev.position.x + 1;
+					clone.position.z = prev.position.z + 1;
+					ballgroup[i] = clone;
+					scene.add(clone);
+					prev = clone;
+				}
+				isDone = true;
+			}
 
 			//Renderer
 			function render() {
@@ -176,6 +228,7 @@
 
 				renderer.render(scene, camera);
 
+
 				for(var index = 0; index < ballgroup.length; index++){
 					slowDown(ballgroup[index]);
 					collideWall(ballgroup[index]);
@@ -183,8 +236,6 @@
 						if(index != i)
 							newCollide(ballgroup[index], ballgroup[i]);
 
-						console.log(whiteBall.speedX);
-						console.log(whiteBall.speedZ);
 					}
 				}
 				if(isShoot)
@@ -192,6 +243,8 @@
 					shoot();
 				}
 				rotateKeu();
+
+
 				//Check if collision has happend
                 //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
               /*  if (redBox.box.isIntersectionBox(whiteBox.box)){
@@ -206,14 +259,12 @@
                 }*/
 
                 //Ball speed vectors
-                whiteBall.position.x += whiteBall.speedX;
-				whiteBall.position.z += whiteBall.speedZ;
-
-                redBall1.position.x += redBall1.speedX;
-				redBall1.position.z += redBall1.speedZ;
-
-				redBall2.position.x += redBall2.speedX;
-				redBall2.position.z += redBall2.speedZ;
+				for(var i = 0; i < ballgroup.length; i++)
+				{
+					var ball = ballgroup[i];
+					ball.position.x += ball.speedX;
+					ball.position.z += ball.speedZ;
+				}
 /*
 				//Playtable Border physics
                 if(whiteBall.position.x >= 6.5 || whiteBall.position.x <= -6.5){
@@ -255,9 +306,6 @@
 
 				//Keep bounding boxes updated
 
-                bbox1.update();
-                bbox2.update();
-                bbox3.update();
                 //redBox.update();
 				requestAnimationFrame(render);
 

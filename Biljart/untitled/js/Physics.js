@@ -31,8 +31,8 @@ function newCollide(ball1, ball2)
         console.log("collision");
         ball2.speedX = ball1.speedX;
         ball2.speedZ = ball1.speedZ;
-        ball1.speedX *= -0.2;
-        ball1.speedZ *= -0.2;
+        ball1.speedX *= -0.4;
+        ball1.speedZ *= -0.4;
 
         ball1.position.x += ball1.speedX;
         ball1.position.z += ball1.speedZ;
@@ -53,8 +53,8 @@ function collideWall (Ball1){
 
 function slowDown (Ball){
     if(Ball.speedX > 0 || Ball.speedZ > 0 || Ball.speedX < 0 || Ball.speedZ < 0){
-        Ball.speedX *= 0.990;
-        Ball.speedZ *= 0.990;
+        Ball.speedX *= 0.97;
+        Ball.speedZ *= 0.97;
     }
     if(Ball.speedX >= -0.00005 && Ball.speedX <= 0.00005){
         Ball.speedX = 0;
