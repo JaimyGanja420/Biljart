@@ -124,9 +124,40 @@
 			redBall10.position.z = -8.875;
 			scene.add(redBall10);
 
+            var redBall11 = redSphere11;
+            redBall11.position.y = 0.5;
+            redBall11.position.x = -2;
+            redBall11.position.z = -9.875;
+            scene.add(redBall11);
+
+            var redBall12 = redSphere12;
+            redBall12.position.y = 0.5;
+            redBall12.position.x = -1;
+            redBall12.position.z = -9.875;
+            scene.add(redBall12);
+
+            var redBall13 = redSphere13;
+            redBall13.position.y = 0.5;
+            redBall13.position.x = 0;
+            redBall13.position.z = -9.875;
+            scene.add(redBall13);
+
+            var redBall14 = redSphere14;
+            redBall14.position.y = 0.5;
+            redBall14.position.x = 1;
+            redBall14.position.z = -9.875;
+            scene.add(redBall14);
+
+            var redBall15 = redSphere15;
+            redBall15.position.y = 0.5;
+            redBall15.position.x = 2;
+            redBall15.position.z = -9.875;
+            scene.add(redBall15);
+
+
 
             //keu
-			var isRemoved = true;
+			var isRemoved = false;
 			var loader2 = new THREE.ObjectLoader();
 			loader2.load('models/model3.json', function(keeu){
 				keu = keeu;
@@ -219,9 +250,7 @@
                 }
             }
 
-
-
-			var ballgroup = [whiteBall, redBall1, redBall2, redBall3, redBall4, redBall5, redBall6, redBall7, redBall8, redBall9, redBall10];
+			var ballgroup = [whiteBall, redBall1, redBall2, redBall3, redBall4, redBall5, redBall6, redBall7, redBall8, redBall9, redBall10, redBall11, redBall12, redBall13, redBall14, redBall15];
 
 			var prev = redBall2;
 
@@ -243,25 +272,23 @@
 			//Renderer
 			function render() {
 			    //Render init
-
-
 				renderer.render(scene, camera);
-
-
-				for(var index = 0; index < ballgroup.length; index++){
+                rotateKeu();
+				for(var index = 0; index < ballgroup.length; index++)
+				{
 					slowDown(ballgroup[index]);
 					collideWall(ballgroup[index]);
-					for(var i = 0; i < ballgroup.length; i++){
+					for(var i = 0; i < ballgroup.length; i++)
+					{
 						if(index != i)
 							newCollide(ballgroup[index], ballgroup[i]);
-
 					}
 				}
 				if(isShoot)
 				{
 					shoot();
 				}
-				rotateKeu();
+
 
 
 
@@ -272,7 +299,6 @@
 					ball.position.x += ball.directionX * ball.speed;
 					ball.position.z += ball.directionZ * ball.speed;
 				}
-
 				requestAnimationFrame(render);
 
 			}
