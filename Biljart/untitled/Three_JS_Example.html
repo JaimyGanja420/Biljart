@@ -75,6 +75,7 @@
 			redBall2.position.z = -6.875;
 			scene.add(redBall2);
 
+
 			var redBall3 = redSphere3;
 			redBall3.position.y = 0.5;
 			redBall3.position.x = 0.5;
@@ -125,7 +126,7 @@
 
 
             //keu
-			var isRemoved = false;
+			var isRemoved = true;
 			var loader2 = new THREE.ObjectLoader();
 			loader2.load('models/model3.json', function(keeu){
 				keu = keeu;
@@ -179,7 +180,7 @@
             {
                 whiteBall.directionX = -(keu.position.x - whiteBall.position.x);
                 whiteBall.directionZ = -(keu.position.z - whiteBall.position.z);
-				whiteBall.speed = 1;
+				whiteBall.speed = 1.2;
                 isShoot = false;
             }
 
@@ -263,18 +264,6 @@
 				rotateKeu();
 
 
-				//Check if collision has happend
-                //if (redBox.box.isIntersectionBox(whiteBox.box)) alert("They have hit!");
-              /*  if (redBox.box.isIntersectionBox(whiteBox.box)){
-                	alert(whiteBall.speedX);
-                    tempx = whiteBall.speedX;
-					whiteBall.speedX = redBall1.speedX;
-					redBall1.speedX = tempx;
-
-                    tempz = whiteBall.speedZ;
-					whiteBall.speedZ = redBall1.speedZ;
-					redBall1.speedZ = tempz;
-                }*/
 
                 //Ball speed vectors
 				for(var i = 0; i < ballgroup.length; i++)
@@ -283,48 +272,7 @@
 					ball.position.x += ball.directionX * ball.speed;
 					ball.position.z += ball.directionZ * ball.speed;
 				}
-/*
-				//Playtable Border physics
-                if(whiteBall.position.x >= 6.5 || whiteBall.position.x <= -6.5){
-					whiteBall.speedX *= -1;
-                }
 
-				if(whiteBall.position.z >= 11.75 || whiteBall.position.z <= -11.75){
-					whiteBall.speedZ *= -1;
-				}
-
-                if(redBall1.position.x >= 6.5 || redBall1.position.x <= -6.5){
-					redBall1.speedX *= -1;
-                }
-
-                if(redBall1.position.z >= 11.75 || redBall1.position.z <= -11.75){
-					redBall1.speedZ *= -1;
-                }
-				if(redBall2.position.x >= 6.5 || redBall2.position.x <= -6.5){
-					redBall2.speedX *= -1;
-				}
-
-				if(redBall2.position.z >= 11.75 || redBall2.position.z <= -11.75){
-					redBall2.speedZ *= -1;
-				}
-
-                //Slow down physics
-                if(whiteBall.speedX > 0 || whiteBall.speedZ > 0){
-					whiteBall.speedX *= 0.980;
-					whiteBall.speedZ *= 0.980;
-				}
-
-				if(redBall1.speedX > 0 || redBall1.speedZ > 0){
-					redBall1.speedX *= 0.980;
-					redBall1.speedZ *= 0.980;
-				}*/
-
-
-
-
-				//Keep bounding boxes updated
-
-                //redBox.update();
 				requestAnimationFrame(render);
 
 			}
