@@ -10,7 +10,7 @@
 			"type": "CylinderBufferGeometry",
 			"radiusTop": 1.5,
 			"radiusBottom": 0.5,
-			"height": 20,
+			"height": 2,
 			"radialSegments": 32,
 			"heightSegments": 1,
 			"openEnded": false

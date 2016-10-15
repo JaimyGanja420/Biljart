@@ -118,21 +118,35 @@
 
 			var redBall2 = redSphere2;
 			redBall2.position.y = 0.5;
-			redBall2.position.z = -8.875;
+<<<<<<< HEAD
+			redBall2.position.x = -1.05;
+			redBall2.position.z = -7.875;
+=======
 			redBall2.position.x = -0.55;
+			redBall2.position.z = -6.875;
+>>>>>>> origin/master
 			scene.add(redBall2);
 
 			var redBall3 = redSphere3;
 			redBall3.position.y = 0.5;
+<<<<<<< HEAD
 			redBall3.position.x = 1.05;
 			redBall3.position.z = -7.875;
+=======
+			redBall3.position.x = 0.55;
+			redBall3.position.z = -6.875;
+>>>>>>> origin/master
 			scene.add(redBall3);
 
 			var redBall4 = redSphere4;
 			redBall4.position.y = 0.5;
+<<<<<<< HEAD
+			redBall4.position.x = -0.55;
+			redBall4.position.z = -8.875;
+=======
 			redBall4.position.x = -1.05;
 			redBall4.position.z = -7.875;
-
+>>>>>>> origin/master
 			scene.add(redBall4);
 
 			var redBall5 = redSphere5;
@@ -141,7 +155,7 @@
 			redBall5.position.z = -8.875;
 			scene.add(redBall5);
 
-
+<<<<<<< HEAD
             var redBall6 = redSphere6;
             redBall6.position.y = 0.5;
             redBall6.position.x = -1.05;
@@ -154,6 +168,71 @@
             redBall7.position.z = -9.875;
             scene.add(redBall7);
 
+
+=======
+			var redBall6 = redSphere6;
+			redBall6.position.y = 0.5;
+			redBall6.position.x = 1.05;
+			redBall6.position.z = -7.875;
+			scene.add(redBall6);
+
+			var redBall7 = redSphere7;
+			redBall7.position.y = 0.5;
+			redBall7.position.x = -1.6;
+			redBall7.position.z = -8.875;
+			scene.add(redBall7);
+
+			var redBall8 = redSphere8;
+			redBall8.position.y = 0.5;
+			redBall8.position.x = -0.55;
+			redBall8.position.z = -8.875;
+			scene.add(redBall8);
+
+			var redBall9 = redSphere9;
+			redBall9.position.y = 0.5;
+			redBall9.position.x = 0.55;
+			redBall9.position.z = -8.875;
+			scene.add(redBall9);
+
+			var redBall10 = redSphere10;
+			redBall10.position.y = 0.5;
+			redBall10.position.x = 1.6;
+			redBall10.position.z = -8.875;
+			scene.add(redBall10);
+
+            var redBall11 = redSphere11;
+            redBall11.position.y = 0.5;
+            redBall11.position.x = -2.1;
+            redBall11.position.z = -9.875;
+            scene.add(redBall11);
+
+            var redBall12 = redSphere12;
+            redBall12.position.y = 0.5;
+            redBall12.position.x = -1.05;
+            redBall12.position.z = -9.875;
+            scene.add(redBall12);
+
+            var redBall13 = redSphere13;
+            redBall13.position.y = 0.5;
+            redBall13.position.x = 0;
+            redBall13.position.z = -9.875;
+            scene.add(redBall13);
+
+            var redBall14 = redSphere14;
+            redBall14.position.y = 0.5;
+            redBall14.position.x = 1.05;
+            redBall14.position.z = -9.875;
+            scene.add(redBall14);
+
+            var redBall15 = redSphere15;
+            redBall15.position.y = 0.5;
+            redBall15.position.x = 2.1;
+            redBall15.position.z = -9.875;
+            scene.add(redBall15);
+>>>>>>> origin/master
+
+
+
             //keu
 			var isRemoved = false;
 			var loader2 = new THREE.ObjectLoader();
@@ -161,7 +240,7 @@
 				keu = keeu;
 				keu.position.x = whiteBall.position.x;
 				keu.position.y = 0.5;
-				keu.position.z = whiteBall.position.z +5;
+				keu.position.z = whiteBall.position.z + 1;
 				scene.add(keu);
 			});
 
@@ -206,12 +285,10 @@
             //shoot function
             function shoot()
             {
-                whiteBall.directionX = -(keu.position.x - whiteBall.position.x - (5 * Math.sin(counter)));
-                whiteBall.directionZ = -(keu.position.z - whiteBall.position.z - (5 * Math.cos(counter)));
-				whiteBall.speed = 1;
+                whiteBall.directionX = -(keu.position.x - whiteBall.position.x);
+                whiteBall.directionZ = -(keu.position.z - whiteBall.position.z);
+				whiteBall.speed = 1.1;
                 isShoot = false;
-				console.log(whiteBall.directionX);
-				console.log(whiteBall.directionZ);
             }
 
             //keu rotation function
@@ -222,22 +299,22 @@
                     if(isRemoved)
                     {
                         scene.add(keu);
-                        keu.position.x = whiteBall.position.x + (distance + 5) * Math.sin(counter);
-                        keu.position.z = whiteBall.position.z + (distance + 5) * Math.cos(counter);
+                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
                         isRemoved = false;
                     }
                     if(isRightPressed)
                     {
                         counter -= speed;
 						keu.rotateZ(-0.03);
-                        keu.position.x = whiteBall.position.x + (distance + 5) * Math.sin(counter);
-                        keu.position.z = whiteBall.position.z + (distance + 5) * Math.cos(counter);
+                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
                     } else if(isLeftPressed)
                     {
                         counter += speed;
 						keu.rotateZ(0.03);
-                        keu.position.x = whiteBall.position.x + (distance + 5) * Math.sin(counter);
-                        keu.position.z = whiteBall.position.z + (distance + 5) * Math.cos(counter);
+                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
                     }
                 }else
                 {
@@ -284,13 +361,19 @@
 
 					}
 				}
-
 				if(isShoot)
 				{
 					shoot();
 				}
-				//Ball speed vectors
+<<<<<<< HEAD
 
+                renderer.render(scene, camera);
+
+
+                //Ball speed vectors
+=======
+				//Ball speed vectors
+>>>>>>> origin/master
 				for(var i = 0; i < ballgroup.length; i++)
 				{
 					var ball = ballgroup[i];
