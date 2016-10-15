@@ -52,47 +52,124 @@
 
 			scene.add( new THREE.AmbientLight(0x111111));
 
+
+			var blackBall = blackSphere;
+			blackBall.position.y = 0.5;
+			blackBall.position.x = 0;
+			blackBall.position.z = -7.875;
+			scene.add(blackBall);
+
+
 			var whiteBall = whiteSphere;
             whiteBall.position.y = 0.5;
 			whiteBall.position.z = 5.875;
 			whiteBall.position.x = 0;
 			scene.add(whiteBall);
 
-            var redBall1 = redSphere;
-            redBall1.position.y = 0.5;
-            redBall1.position.x = 0;
+
+			var blueBall1 = blueSphere1;
+			blueBall1.position.y = 0.5;
+			blueBall1.position.x = -0.55;
+			blueBall1.position.z = -6.875;
+			scene.add(blueBall1);
+
+			var blueBall2 = blueSphere2;
+			blueBall2.position.y = 0.5;
+			blueBall2.position.x = 0.55;
+			blueBall2.position.z = -6.875;
+			scene.add(blueBall2);
+
+			var blueBall3 = blueSphere3;
+			blueBall3.position.y = 0.5;
+			blueBall3.position.x = -1.6;
+			blueBall3.position.z = -8.875;
+			scene.add(blueBall3);
+
+			var blueBall4 = blueSphere4;
+			blueBall4.position.y = 0.5;
+			blueBall4.position.x = 0.55;
+			blueBall4.position.z = -8.875;
+			scene.add(blueBall4);
+
+			var blueBall5 = blueSphere5;
+			blueBall5.position.y = 0.5;
+			blueBall5.position.x = -2.1;
+			blueBall5.position.z = -9.875;
+			scene.add(blueBall5);
+
+			var blueBall6 = blueSphere6;
+			blueBall6.position.y = 0.5;
+			blueBall6.position.x = 0;
+			blueBall6.position.z = -9.875;
+			scene.add(blueBall6);
+
+			var blueBall7 = blueSphere7;
+			blueBall7.position.y = 0.5;
+			blueBall7.position.x = 2.1;
+			blueBall7.position.z = -9.875;
+			scene.add(blueBall7);
+
+
+			var redBall1 = redSphere1;
+			redBall1.position.y = 0.5;
+			redBall1.position.x = 0;
 			redBall1.position.z = -5.875;
-			redBall1.directionX = 0;
-			redBall1.directionZ = 0;
-            scene.add(redBall1);
-
-
+			scene.add(redBall1);
 
 			var redBall2 = redSphere2;
 			redBall2.position.y = 0.5;
+<<<<<<< HEAD
+			redBall2.position.x = -1.05;
+			redBall2.position.z = -7.875;
+=======
 			redBall2.position.x = -0.55;
 			redBall2.position.z = -6.875;
+>>>>>>> origin/master
 			scene.add(redBall2);
-
 
 			var redBall3 = redSphere3;
 			redBall3.position.y = 0.5;
+<<<<<<< HEAD
+			redBall3.position.x = 1.05;
+			redBall3.position.z = -7.875;
+=======
 			redBall3.position.x = 0.55;
 			redBall3.position.z = -6.875;
+>>>>>>> origin/master
 			scene.add(redBall3);
 
 			var redBall4 = redSphere4;
 			redBall4.position.y = 0.5;
+<<<<<<< HEAD
+			redBall4.position.x = -0.55;
+			redBall4.position.z = -8.875;
+=======
 			redBall4.position.x = -1.05;
 			redBall4.position.z = -7.875;
+>>>>>>> origin/master
 			scene.add(redBall4);
 
 			var redBall5 = redSphere5;
 			redBall5.position.y = 0.5;
-			redBall5.position.x = 0;
-			redBall5.position.z = -7.875;
+			redBall5.position.x = 1.6;
+			redBall5.position.z = -8.875;
 			scene.add(redBall5);
 
+<<<<<<< HEAD
+            var redBall6 = redSphere6;
+            redBall6.position.y = 0.5;
+            redBall6.position.x = -1.05;
+            redBall6.position.z = -9.875;
+            scene.add(redBall6);
+
+			var redBall7 = redSphere7;
+            redBall7.position.y = 0.5;
+            redBall7.position.x = 1.05;
+            redBall7.position.z = -9.875;
+            scene.add(redBall7);
+
+
+=======
 			var redBall6 = redSphere6;
 			redBall6.position.y = 0.5;
 			redBall6.position.x = 1.05;
@@ -152,6 +229,7 @@
             redBall15.position.x = 2.1;
             redBall15.position.z = -9.875;
             scene.add(redBall15);
+>>>>>>> origin/master
 
 
 
@@ -248,7 +326,7 @@
                 }
             }
 
-			var ballgroup = [whiteBall, redBall1, redBall2, redBall3, redBall4, redBall5, redBall6, redBall7, redBall8, redBall9, redBall10, redBall11, redBall12, redBall13, redBall14, redBall15];
+			var ballgroup = [whiteBall, redBall1, blueBall1, blueBall2, redBall2, blackBall, redBall3, blueBall3, redBall4, blueBall4, redBall5, blueBall5, redBall6, blueBall6, redBall7, blueBall7];
 
 			var prev = redBall2;
 
@@ -288,7 +366,15 @@
 				{
 					shoot();
 				}
+<<<<<<< HEAD
+
+                renderer.render(scene, camera);
+
+
+                //Ball speed vectors
+=======
 				//Ball speed vectors
+>>>>>>> origin/master
 				for(var i = 0; i < ballgroup.length; i++)
 				{
 					var ball = ballgroup[i];
