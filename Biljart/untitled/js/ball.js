@@ -37,6 +37,10 @@ Object.defineProperty(whiteSphere, 'speed', {
     configurable: true
 });*/
 
+//blue material
+var blueMaterial = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+
+
 //Redball
 var geometry2 = new THREE.SphereGeometry(0.5,32,32);
 var material2 = new THREE.MeshBasicMaterial( {color: 0xff0000} );
@@ -66,8 +70,8 @@ Object.defineProperty(redSphere, 'speed', {
 });
 
 
-var redSphere2 = new THREE.Mesh( geometry2, material2 );
-redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
+var redSphere2 = new THREE.Mesh( geometry2, blueMaterial);
+redBox = new THREE.BoundingBoxHelper(redSphere,0x0000ff);
 redSphere.bbox = redBox;
 
 Object.defineProperty(redSphere2, 'directionX', {
@@ -92,7 +96,7 @@ Object.defineProperty(redSphere2, 'speed', {
 });
 
 
-var redSphere5 = new THREE.Mesh( geometry2, material2 );
+var redSphere5 = new THREE.Mesh( geometry2, blueMaterial );
 redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
 redSphere.bbox = redBox;
 
@@ -117,7 +121,7 @@ Object.defineProperty(redSphere5, 'speed', {
     configurable: true
 });
 
-var redSphere3 = new THREE.Mesh( geometry2, material2 );
+var redSphere3 = new THREE.Mesh( geometry2, blueMaterial );
 redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
 redSphere.bbox = redBox;
 
@@ -193,7 +197,7 @@ Object.defineProperty(redSphere6, 'speed', {
     configurable: true
 });
 
-var redSphere7 = new THREE.Mesh( geometry2, material2 );
+var redSphere7 = new THREE.Mesh( geometry2, blueMaterial );
 redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
 redSphere.bbox = redBox;
 
@@ -243,7 +247,7 @@ Object.defineProperty(redSphere8, 'speed', {
     configurable: true
 });
 
-var redSphere9 = new THREE.Mesh( geometry2, material2 );
+var redSphere9 = new THREE.Mesh( geometry2, blueMaterial );
 redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
 redSphere.bbox = redBox;
 
@@ -318,7 +322,7 @@ Object.defineProperty(redSphere11, 'speed', {
     configurable: true
 });
 
-var redSphere12 = new THREE.Mesh( geometry2, material2 );
+var redSphere12 = new THREE.Mesh( geometry2, blueMaterial );
 redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
 redSphere.bbox = redBox;
 
@@ -368,7 +372,7 @@ Object.defineProperty(redSphere13, 'speed', {
     configurable: true
 });
 
-var redSphere14 = new THREE.Mesh( geometry2, material2 );
+var redSphere14 = new THREE.Mesh( geometry2, blueMaterial);
 redBox = new THREE.BoundingBoxHelper(redSphere,0x00ff0f);
 redSphere.bbox = redBox;
 
