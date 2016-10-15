@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/index.html" line="17" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22190589-9301-48ee-9af6-59b40a72d175" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Physics.js" afterPath="$PROJECT_DIR$/js/Physics.js" />
-    </list>
+    <list default="true" id="22190589-9301-48ee-9af6-59b40a72d175" name="Default" comment="" />
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,8 +29,18 @@
       <file leaf-file-name="Physics.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Physics.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="272">
               <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="204">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+=======
+            <state relative-caret-position="119">
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+>>>>>>> origin/master
+>>>>>>> fc366378fba9f398a0c0b9e60591c01112eaa55c
               <folding />
             </state>
           </provider>
@@ -41,6 +49,7 @@
       <file leaf-file-name="Three_JS_Example.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Three_JS_Example.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="790">
               <caret line="613" column="7" selection-start-line="613" selection-start-column="7" selection-end-line="613" selection-end-column="7" />
               <folding />
@@ -53,6 +62,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="816">
+              <caret line="287" column="17" selection-start-line="287" selection-start-column="17" selection-end-line="287" selection-end-column="17" />
+=======
+            <state relative-caret-position="-986">
+              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+>>>>>>> origin/master
+>>>>>>> fc366378fba9f398a0c0b9e60591c01112eaa55c
               <folding />
             </state>
           </provider>
@@ -61,8 +79,13 @@
       <file leaf-file-name="ball.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ball.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1037">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+<<<<<<< HEAD
+            <state relative-caret-position="714">
+              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+=======
+            <state relative-caret-position="782">
+              <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+>>>>>>> origin/master
               <folding>
                 <element signature="e#0#41#0" expanded="false" />
               </folding>
@@ -91,9 +114,8 @@
         <option value="$USER_HOME$/Downloads/CircleCollisionsSourceFiles/v3/bin/js/swfobject.js" />
         <option value="$USER_HOME$/Downloads/CircleCollisionsSourceFiles/v4/bin/js/swfobject.js" />
         <option value="$PROJECT_DIR$/js/ball.js" />
-        <option value="$PROJECT_DIR$/models/model3.json" />
-        <option value="$PROJECT_DIR$/js/Physics.js" />
         <option value="$PROJECT_DIR$/Three_JS_Example.html" />
+        <option value="$PROJECT_DIR$/js/Physics.js" />
       </list>
     </option>
   </component>
@@ -134,10 +156,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -172,6 +190,17 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+      <pane id="Scratches">
+        <subPane />
+      </pane>
+      <pane id="Scope" />
+=======
+      <pane id="Scope" />
+      <pane id="Scratches">
+        <subPane />
+      </pane>
+>>>>>>> origin/master
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,15 +303,25 @@
       <workItem from="1476441300338" duration="5570000" />
       <workItem from="1476450498681" duration="3971000" />
       <workItem from="1476456081027" duration="4206000" />
+<<<<<<< HEAD
+      <workItem from="1476539847362" duration="1867000" />
+=======
       <workItem from="1476539847362" duration="2006000" />
-      <workItem from="1476541878468" duration="4607000" />
-      <workItem from="1476546517930" duration="333000" />
-      <workItem from="1476546881115" duration="1108000" />
+      <workItem from="1476541878468" duration="2872000" />
+>>>>>>> origin/master
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="43772000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="37507000" />
+=======
+    <option name="totallyTimeSpent" value="40518000" />
+>>>>>>> origin/master
+>>>>>>> fc366378fba9f398a0c0b9e60591c01112eaa55c
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -374,42 +413,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Physics.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Three_JS_Example.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6239">
-          <caret line="367" column="17" selection-start-line="367" selection-start-column="17" selection-end-line="367" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/model3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/ball.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Physics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        <state relative-caret-position="544">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -422,18 +427,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/model3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ball.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+        <state relative-caret-position="6987">
+          <caret line="413" column="33" selection-start-line="413" selection-start-column="33" selection-end-line="413" selection-end-column="33" />
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
@@ -702,21 +699,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="19" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="19" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/model3.json">
+    <entry file="file://$PROJECT_DIR$/Three_JS_Example.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+        <state relative-caret-position="816">
+          <caret line="287" column="17" selection-start-line="287" selection-start-column="17" selection-end-line="287" selection-end-column="17" />
           <folding />
+=======
+>>>>>>> origin/master
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ball.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1037">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+<<<<<<< HEAD
+        <state relative-caret-position="714">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+=======
+        <state relative-caret-position="782">
+          <caret line="48" column="24" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+>>>>>>> origin/master
           <folding>
             <element signature="e#0#41#0" expanded="false" />
           </folding>
@@ -724,17 +729,34 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Physics.js">
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+=======
+<<<<<<< HEAD
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+=======
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+>>>>>>> fc366378fba9f398a0c0b9e60591c01112eaa55c
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Three_JS_Example.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="790">
           <caret line="613" column="7" selection-start-line="613" selection-start-column="7" selection-end-line="613" selection-end-column="7" />
+=======
+        <state relative-caret-position="-986">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+>>>>>>> origin/master
+>>>>>>> fc366378fba9f398a0c0b9e60591c01112eaa55c
           <folding />
         </state>
       </provider>
