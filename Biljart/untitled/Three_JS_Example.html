@@ -162,7 +162,7 @@
 				keu = keeu;
 				keu.position.x = whiteBall.position.x;
 				keu.position.y = 0.5;
-				keu.position.z = whiteBall.position.z + 1;
+				keu.position.z = whiteBall.position.z + 5;
 				scene.add(keu);
 			});
 
@@ -209,7 +209,7 @@
             {
                 whiteBall.directionX = -(keu.position.x - whiteBall.position.x);
                 whiteBall.directionZ = -(keu.position.z - whiteBall.position.z);
-				whiteBall.speed = 1.1;
+				whiteBall.speed = 0.3;
                 isShoot = false;
             }
 
@@ -221,22 +221,22 @@
                     if(isRemoved)
                     {
                         scene.add(keu);
-                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
-                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
+                        keu.position.x = whiteBall.position.x + (distance+5) * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + (distance+5) * Math.cos(counter);
                         isRemoved = false;
                     }
                     if(isRightPressed)
                     {
                         counter -= speed;
 						keu.rotateZ(-0.03);
-                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
-                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
+                        keu.position.x = whiteBall.position.x + (distance+5) * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + (distance+5) * Math.cos(counter);
                     } else if(isLeftPressed)
                     {
                         counter += speed;
 						keu.rotateZ(0.03);
-                        keu.position.x = whiteBall.position.x + distance * Math.sin(counter);
-                        keu.position.z = whiteBall.position.z + distance * Math.cos(counter);
+                        keu.position.x = whiteBall.position.x + (distance+5) * Math.sin(counter);
+                        keu.position.z = whiteBall.position.z + (distance+5) * Math.cos(counter);
                     }
                 }else
                 {
@@ -283,6 +283,7 @@
 
 					}
 				}
+
 				if(isShoot)
 				{
 					shoot();
