@@ -2,8 +2,6 @@
  * Created by Frank Keuning on 11-10-2016.
  */
 
-    if(ab < 1 && ball1.speed != 0)
-
 function newCollide(ball1, ball2)
 {
     a = ball1.position.x - ball2.position.x;
