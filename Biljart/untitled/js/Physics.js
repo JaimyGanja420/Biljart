@@ -22,7 +22,7 @@ function newCollide(ball1, ball2)
         ball2.directionZ = (collisionPointZ - ball2.position.z)*-1;
 
         ball2.speed = ball1.speed;
-        ball1.speed *= 0.8;
+        //ball1.speed *= 0.9;
 
     }
 }
@@ -39,9 +39,9 @@ function collideWall (Ball1){
 
 function slowDown (Ball){
     if(Ball.speed > 0 || Ball.speed < 0){
-        Ball.speed *= 0.98;
+        Ball.speed *= 0.97;
     }
-    if(Ball.speed >= -0.00005 && Ball.speed <= 0.00005){
+    if(Ball.speed >= -0.0005 && Ball.speed <= 0.0005){
         Ball.speed = 0;
     }
 }
