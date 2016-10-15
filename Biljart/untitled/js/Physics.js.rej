@@ -1,0 +1,70 @@
+diff a/Biljart/untitled/js/Physics.js b/Biljart/untitled/js/Physics.js	(rejected hunks)
+@@ -9,7 +9,8 @@
+     b = ball1.position.z - ball2.position.z;
+     ab = Math.sqrt(((a * a) + (b * b)));
+ 
+-    if(ab < 1 && ball1.speed != 0)
++
++    if(ab < 1)
+     {
+         var collisionPointX = (ball1.position.x + ball2.position.x)/2;
+         var collisionPointZ = (ball1.position.z + ball2.position.z)/2;
+@@ -19,49 +20,28 @@
+ 
+         ball1.directionZ = (collisionPointZ - ball1.position.z)*-1;
+         ball2.directionZ = (collisionPointZ - ball2.position.z)*-1;
++
+         ball2.speed = ball1.speed;
+-    }
+-    else if(ab <1 && ball1.speed == 0)
+-    {
+-        ball1.speed = 0.1;
++        ball1.speed *= 0.8;
++
+     }
+ }
+ 
+ function collideWall (Ball1){
+-    if(Ball1.position.x >= 6.5 || Ball1.position.x <= -6.5)
+-    {
++    if(Ball1.position.x >= 6.5 || Ball1.position.x <= -6.5){
+         Ball1.directionX *= -1;
+-        if(Ball1.speed == 0 && Ball1.position.x >= 6.5)
+-        {
+-            Ball1.position.x -= 0.01;
+-        }
+-        if(Ball1.speed == 0 && Ball1.position.x <= -6.5)
+-        {
+-            Ball1.position.x += 0.01;
+-        }
+     }
+ 
+-    else if(Ball1.position.z >= 11.75 || Ball1.position.z <= -11.75)
+-    {
++    else if(Ball1.position.z >= 11.75 || Ball1.position.z <= -11.75){
+         Ball1.directionZ *= -1;
+-        if(Ball1.speed == 0 && Ball1.position.z >= 11.75)
+-        {
+-            Ball1.position.z -= 0.1;
+-        }
+-        if(Ball1.speed == 0 && Ball1.position.z <= -11.75)
+-        {
+-            Ball1.position.z += 0.1;
+-        }
+     }
+ }
+ 
+ function slowDown (Ball){
+-    if(Ball.speed > 0 || Ball.speed < 0)
+-    {
+-        Ball.speed *= 0.97;
++    if(Ball.speed > 0 || Ball.speed < 0){
++        Ball.speed *= 0.98;
+     }
+-    if(Ball.speed >= -0.00005 && Ball.speed <= 0.00005)
+-    {
++    if(Ball.speed >= -0.00005 && Ball.speed <= 0.00005){
+         Ball.speed = 0;
+     }
+ }
+\ No newline at end of file
