@@ -209,7 +209,7 @@
             {
                 whiteBall.directionX = -(keu.position.x - whiteBall.position.x);
                 whiteBall.directionZ = -(keu.position.z - whiteBall.position.z);
-				whiteBall.speed = 1.2;
+				whiteBall.speed = 1.1;
                 isShoot = false;
             }
 
@@ -275,30 +275,27 @@
 				for(var index = 0; index < ballgroup.length; index++)
 				{
 					slowDown(ballgroup[index]);
-					collideWall(ballgroup[index]);
+                    collideWall(ballgroup[index]);
 					for(var i = 0; i < ballgroup.length; i++)
 					{
 						if(index != i)
 							newCollide(ballgroup[index], ballgroup[i]);
+
 					}
 				}
 				if(isShoot)
 				{
 					shoot();
 				}
-
-                renderer.render(scene, camera);
-
-
-                //Ball speed vectors
+				//Ball speed vectors
 				for(var i = 0; i < ballgroup.length; i++)
 				{
 					var ball = ballgroup[i];
 					ball.position.x += ball.directionX * ball.speed;
 					ball.position.z += ball.directionZ * ball.speed;
 				}
+                renderer.render(scene, camera);
 				requestAnimationFrame(render);
-
 			}
 			render();
 		</script>
