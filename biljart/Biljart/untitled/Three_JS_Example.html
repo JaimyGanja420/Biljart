@@ -18,9 +18,17 @@
 <script src="js/Physics.js"></script>
 <script src="js/ball.js"></script>
 <script src="js/OrbitControls.js"></script>
+<div style="display: inline-block">
+    <button >Reset</button>
+</div>
+<div style="display: inline-block">
+    <p>Player 1 score<input type="text" id="p1_score" readonly="true"></p>
+</div>
+<div style="display: inline-block">
+    <p>Player 2 score<input type="text" id="p2_score" readonly="true"></p>
+</div>
 
-<button >Reset</button>
-<p>Player 1 score<input type="text" id="p1_score" readonly="true"></p><p>Player 2 score<input type="text" id="p2_score" readonly="true"></p>
+
 <script>
 
     var keu = null;
@@ -223,7 +231,7 @@
 
     //shoot function
     function shoot() {
-        if (whiteBall.speed == 0) {
+        if (whiteBall.speed == 0 && (!p1Win || !p2Win)) {
             whiteBall.directionX = -(keu.position.x - whiteBall.position.x - (5 * Math.sin(counter)));
             whiteBall.directionZ = -(keu.position.z - whiteBall.position.z - (5 * Math.cos(counter)));
             whiteBall.speed = ballSpeed;
@@ -430,9 +438,11 @@
             if(p1Win)
             {
                 console.log("p1Wins");
+                windows.alert("Player 1 wins!")
             } else if(p2Win)
             {
                 console.log("p2Wins");
+                windows.alert("Player 1 wins!")
             }
 
             for(var i = 0; i < ballgroup.length; i++)
