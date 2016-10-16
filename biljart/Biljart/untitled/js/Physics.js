@@ -63,4 +63,31 @@ function slowDown (Ball){
     {
         Ball.speed = 0;
     }
+
+}
+function scorePoint(ball1) {
+    if ((ball1.position.x > 6.30 && ball1.position.x < 8.34) && (ball1.position.z > 11.67 && ball1.position.z < 13.75)){
+        console.log("score 1 "); //check
+        scene.remove(ball1);
+    }
+    if ((ball1.position.x > -8.58 && ball1.position.x < -6.58) && (ball1.position.z > 11.67 && ball1.position.z < 13.75)){
+        console.log("score 2 "); //check
+        scene.remove(ball1);
+    }
+    if ((ball1.position.x > -8.58 && ball1.position.x < -6.58) && (ball1.position.z > -1 && ball1.position.z < 1)) {
+        console.log("score 3 "); //check
+        scene.remove(ball1);
+    }
+    if((ball1.position.x > 6.58 && ball1.position.x < 8.58) && (ball1.position.z > -1 && ball1.position.z < 1)) {
+        console.log("score 4 "); //check
+        scene.remove(ball1);
+    }
+    if((ball1.position.x > -8.58 && ball1.position.x < -6.58) && (ball1.position.z < -11.67 && ball1.position.z > -13.75)) {
+        console.log("score 5 "); //check
+        scene.remove(ball1);
+    }
+    if((ball1.position.x > 6.30 && ball1.position.x < 8.34) && (ball1.position.z < -11.67 && ball1.position.z > -13.75)) {
+        console.log("score 6 "); //check
+        scene.remove(ball1);
+    }
 }

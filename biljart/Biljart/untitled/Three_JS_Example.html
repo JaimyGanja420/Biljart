@@ -40,7 +40,7 @@
 
     //Objects
     var loader = new THREE.ObjectLoader();
-    loader.load('models/scene.json', function(tafel){
+    loader.load('models/tafel.json', function(tafel){
         scene.add(tafel);
     });
 
@@ -277,10 +277,12 @@
         {
             slowDown(ballgroup[index]);
             collideWall(ballgroup[index]);
+            scorePoint(ballgroup[index]);
             for(var i = 0; i < ballgroup.length; i++)
             {
                 if(index != i)
                     newCollide(ballgroup[index], ballgroup[i]);
+
 
             }
         }
