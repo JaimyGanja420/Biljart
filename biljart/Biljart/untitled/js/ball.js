@@ -3,7 +3,7 @@
  */
 
 var geometry = new THREE.SphereGeometry(0.5,32,32);
-var blackMaterial = new THREE.MeshBasicMaterial({color: 0x000000});
+var blackMaterial = new THREE.MeshPhongMaterial({color: 0x000000});
 var blackSphere = new THREE.Mesh( geometry, blackMaterial );
 
 Object.defineProperty(blackSphere, 'directionX', {
@@ -29,7 +29,7 @@ Object.defineProperty(blackSphere, 'speed', {
 
 //Whiteball
 
-var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+var material = new THREE.MeshPhongMaterial( {color: 0xffffff} );
 var whiteSphere = new THREE.Mesh( geometry, material );
 Object.defineProperty(whiteSphere, 'directionX', {
     value: 0,
@@ -53,12 +53,12 @@ Object.defineProperty(whiteSphere, 'speed', {
 });
 
 //blue material
-var blueMaterial = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+var blueMaterial = new THREE.MeshPhongMaterial( {color: 0x0000ff} );
 
 
 //Redball
 
-var redMaterial = new THREE.MeshBasicMaterial( {color: 0xff0000} );
+var redMaterial = new THREE.MeshPhongMaterial( {color: 0xff0000} );
 var redSphere1 = new THREE.Mesh( geometry, redMaterial );
 
 Object.defineProperty(redSphere1, 'directionX', {
