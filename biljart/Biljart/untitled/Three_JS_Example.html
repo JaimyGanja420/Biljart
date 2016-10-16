@@ -27,6 +27,9 @@
 <div style="display: inline-block">
     <p>Player 2 score<input type="text" id="p2_score" readonly="true"></p>
 </div>
+<div style="display: inline-block">
+    <input type="text" id="turn" readonly="true" >
+</div>
 
 
 <script>
@@ -438,11 +441,11 @@
             if(p1Win)
             {
                 console.log("p1Wins");
-                windows.alert("Player 1 wins!")
+                window.alert("Player 1 wins!")
             } else if(p2Win)
             {
                 console.log("p2Wins");
-                windows.alert("Player 1 wins!")
+                window.alert("Player 2 wins!")
             }
 
             for(var i = 0; i < ballgroup.length; i++)
@@ -470,7 +473,10 @@
         }
         document.getElementById("p1_score").value = p1Score;
         document.getElementById("p2_score").value = p2Score;
-
+        if(isP1Turn)
+            document.getElementById("turn").value = "Player's 2 turn";
+        else
+            document.getElementById("turn").value = "Player's 1 turn";
         renderer.render(scene, camera);
         requestAnimationFrame(render);
     }
