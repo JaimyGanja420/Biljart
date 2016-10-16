@@ -18,6 +18,9 @@
 <script src="js/Physics.js"></script>
 <script src="js/ball.js"></script>
 <script src="js/OrbitControls.js"></script>
+
+<button >Reset</button>
+<p>Player 1 score<input type="text" id="p1_score" readonly="true"></p><p>Player 2 score<input type="text" id="p2_score" readonly="true"></p>
 <script>
 
     var keu = null;
@@ -455,6 +458,9 @@
             ball.position.x += ball.directionX * ball.speed;
             ball.position.z += ball.directionZ * ball.speed;
         }
+        document.getElementById("p1_score").value = p1Score;
+        document.getElementById("p2_score").value = p2Score;
+
         renderer.render(scene, camera);
         requestAnimationFrame(render);
     }
@@ -572,8 +578,8 @@
 
 
     }
+
+
 </script>
-<button onclick="resetGame()">Reset</button>
-<p>Player 1 score<input type="text" value="0" id="p1_score" readonly="true"></p><p>Player 2 score<input type="text" value="0" id="p2_score" readonly="true"></p>
 </body>
 </html>
