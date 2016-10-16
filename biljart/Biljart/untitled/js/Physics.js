@@ -27,27 +27,27 @@ function newCollide(ball1, ball2)
 }
 
 function collideWall (Ball1){
-    if(Ball1.position.x >= 6.5 || Ball1.position.x <= -6.5)
+    if(Ball1.position.x >= 6.4 || Ball1.position.x <= -6.6)
     {
         Ball1.directionX *= -1;
-        if(Ball1.speed == 0 && Ball1.position.x >= 6.5)
+        if(Ball1.speed == 0 && Ball1.position.x >= 6.4)
         {
             Ball1.position.x -= 0.01;
         }
-        if(Ball1.speed == 0 && Ball1.position.x <= -6.5)
+        if(Ball1.speed == 0 && Ball1.position.x <= -6.6)
         {
             Ball1.position.x += 0.01;
         }
     }
 
-    else if(Ball1.position.z >= 11.75 || Ball1.position.z <= -11.75)
+    else if(Ball1.position.z >= 11.6 || Ball1.position.z <= -11.9)
     {
         Ball1.directionZ *= -1;
-        if(Ball1.speed == 0 && Ball1.position.z >= 11.75)
+        if(Ball1.speed == 0 && Ball1.position.z >= 11.6)
         {
             Ball1.position.z -= 0.1;
         }
-        if(Ball1.speed == 0 && Ball1.position.z <= -11.75)
+        if(Ball1.speed == 0 && Ball1.position.z <= -11.9)
         {
             Ball1.position.z += 0.1;
         }
@@ -68,7 +68,7 @@ function slowDown (Ball){
 function scorePoint(ball1) {
     var whiteball = false;
     if ((ball1.position.x > 6.20 && ball1.position.x < 8.54) && (ball1.position.z > 11.27 && ball1.position.z < 13.95)){
-        console.log("score 1 "); 
+        console.log("score 1 ");
         scene.remove(ball1);
         return ball1;
     }
