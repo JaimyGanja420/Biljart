@@ -14,10 +14,10 @@ function newCollide(ball1, ball2)
         var collisionPointZ = (ball1.position.z + ball2.position.z)/2;
 
         ball1.directionX = (collisionPointX - ball1.position.x)*-1;
-        ball2.directionX = (collisionPointX - ball2.position.x)*-1;
+        ball2.directionX = ((collisionPointX - ball2.position.x)*-1)/4;
 
         ball1.directionZ = (collisionPointZ - ball1.position.z)*-1;
-        ball2.directionZ = (collisionPointZ - ball2.position.z)*-1;
+        ball2.directionZ = ((collisionPointZ - ball2.position.z)*-1)/4;
         ball2.speed = ball1.speed;
     }
     else if(ab <1 && ball1.speed == 0)
@@ -66,28 +66,35 @@ function slowDown (Ball){
 
 }
 function scorePoint(ball1) {
-    if ((ball1.position.x > 6.30 && ball1.position.x < 8.34) && (ball1.position.z > 11.67 && ball1.position.z < 13.75)){
-        console.log("score 1 "); //check
+    var whiteball = false;
+    if ((ball1.position.x > 6.20 && ball1.position.x < 8.54) && (ball1.position.z > 11.27 && ball1.position.z < 13.95)){
+        console.log("score 1 "); 
         scene.remove(ball1);
+        return ball1;
     }
-    if ((ball1.position.x > -8.58 && ball1.position.x < -6.58) && (ball1.position.z > 11.67 && ball1.position.z < 13.75)){
-        console.log("score 2 "); //check
+    if ((ball1.position.x > -8.78 && ball1.position.x < -6.38) && (ball1.position.z > 11.47 && ball1.position.z < 13.75)){
+        console.log("score 2 ");
         scene.remove(ball1);
+        return ball1;
     }
-    if ((ball1.position.x > -8.58 && ball1.position.x < -6.58) && (ball1.position.z > -1 && ball1.position.z < 1)) {
-        console.log("score 3 "); //check
+    if ((ball1.position.x > -8.78 && ball1.position.x < -6.38) && (ball1.position.z > -1.2 && ball1.position.z < 1.2)) {
+        console.log("score 3 ");
         scene.remove(ball1);
+        return ball1;
     }
-    if((ball1.position.x > 6.58 && ball1.position.x < 8.58) && (ball1.position.z > -1 && ball1.position.z < 1)) {
-        console.log("score 4 "); //check
+    if((ball1.position.x > 6.38 && ball1.position.x < 8.78) && (ball1.position.z > -1.2 && ball1.position.z < 1.2)) {
+        console.log("score 4 ");
         scene.remove(ball1);
+        return ball1;
     }
-    if((ball1.position.x > -8.58 && ball1.position.x < -6.58) && (ball1.position.z < -11.67 && ball1.position.z > -13.75)) {
-        console.log("score 5 "); //check
+    if((ball1.position.x > -8.78 && ball1.position.x < -6.38) && (ball1.position.z < -11.47 && ball1.position.z > -13.75)) {
+        console.log("score 5 ");
         scene.remove(ball1);
+        return ball1;
     }
-    if((ball1.position.x > 6.30 && ball1.position.x < 8.34) && (ball1.position.z < -11.67 && ball1.position.z > -13.75)) {
-        console.log("score 6 "); //check
+    if((ball1.position.x > 6.30 && ball1.position.x < 8.34) && (ball1.position.z < -11.47 && ball1.position.z > -13.75)) {
+        console.log("score 6 ");
         scene.remove(ball1);
+        return ball1;
     }
 }

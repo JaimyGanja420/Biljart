@@ -251,6 +251,8 @@
 
     var ballgroup = [whiteBall, redBall1, blueBall1, blueBall2, redBall2, blackBall, redBall3, blueBall3, redBall4, blueBall4, redBall5, blueBall5, redBall6, blueBall6, redBall7, blueBall7];
 
+    var blueBalls = [blueBall1, blueBall2, blueBall3, blueBall4, blueBall5, blueBall6, blueBall7];
+    var redBalls = [redBall1, redBall2, redBall3, redBall4, redBall5, redBall6, redBall7];
     var prev = redBall2;
 
     var isDone = false;
@@ -277,7 +279,21 @@
         {
             slowDown(ballgroup[index]);
             collideWall(ballgroup[index]);
-            scorePoint(ballgroup[index]);
+            var currentBall = scorePoint(ballgroup[index]);
+            if(blueBalls.indexOf(currentBall) != -1)
+            {
+                console.log("blue");
+            }else if(redBalls.indexOf(currentBall) != -1)
+            {
+                console.log("red");
+            }
+            else if (currentBall == whiteBall){
+                whiteBall.position.y = 0.5;
+                whiteBall.position.z = 5.875;
+                whiteBall.position.x = 0;
+                whiteBall.speed = 0;
+                scene.add(whiteBall);
+            }
             for(var i = 0; i < ballgroup.length; i++)
             {
                 if(index != i)
@@ -422,5 +438,3 @@
 
 </body>
 </html>
-
-
