@@ -286,7 +286,6 @@
         for(var index = 0; index < ballgroup.length; index++)
         {
             slowDown(ballgroup[index]);
-            collideWall(ballgroup[index]);
             var currentBall = scorePoint(ballgroup[index]);
             if(blueBalls.indexOf(currentBall) != -1)
             {
@@ -308,13 +307,19 @@
 
             for(var i = 0; i < ballgroup.length; i++)
             {
-                if(index != i)
-                    newCollide(ballgroup[index], ballgroup[i]);
-
+                if(ballgroup.length > 0)
+                {
+                    if(ballgroup[index] != null)
+                    {
+                        if(index != i)
+                            newCollide(ballgroup[index], ballgroup[i]);
+                    }
+                }
 
             }
+            if(ballgroup[index] != null)
+                collideWall(ballgroup[index]);
         }
-
         if(isShoot)
         {
             shoot();
